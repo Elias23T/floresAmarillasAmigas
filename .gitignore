@@ -1,0 +1,9 @@
+node_modules/
+.checks/
+*.tmp
+.vercel/
+.env
+.env.*
+assets/photos/
+Thumbs.db
+.DS_Store

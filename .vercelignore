@@ -1,0 +1,7 @@
+node_modules/
+.checks/
+.git/
+*.tmp
+.env*
+assets/photos/
+README.md

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f0e5">
+  <meta name="description" content="Un libro de flores, recuerdos y palabras para un amor que aún vive en la memoria.">
+  <title>Lo que quedó de nosotros · Un libro para ti</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="album.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <audio id="soundtrack" autoplay loop preload="metadata" playsinline src="musica/Billie Eilish - WILDFLOWER (Official Lyric Video) - BillieEilishVEVO (youtube).mp3"></audio>
+  <header class="site-header"><a class="brand" href="./" aria-label="Inicio">✳ <span>LO QUE QUEDÓ</span></a><div class="track-info" id="track-info"><span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="track-status">WILDFLOWER <small>BILLIE EILISH</small></span><button id="sound-toggle" class="sound-toggle" aria-label="Silenciar música" title="Silenciar música" aria-pressed="false" hidden>♫</button></div></header>
+  <main>
+    <section id="welcome" class="welcome">
+      <div class="intro"><p class="eyebrow">21 DE SEPTIEMBRE · FLORES PARA UN RECUERDO</p><h1>Hay amores<br>que se van.<br><em>Y algo florece.</em></h1><p class="intro-copy">Para quien fue un hogar por un instante. Para lo que casi fuimos. Para ese nombre que todavía llega cuando suena una canción.</p>
+        <form id="name-form"><label for="name">¿Qué nombre guarda esta historia?</label><div class="name-field"><span aria-hidden="true">✿</span><input id="name" name="name" placeholder="Un nombre que aún recuerdas" autocomplete="off" maxlength="40" required><button type="submit" aria-label="Abrir mi libro">↗</button></div><p id="name-error" class="hint" aria-live="polite"></p><button class="primary open-button" type="submit">Abrir este recuerdo <span>↗</span></button></form>
+        <p class="handwritten">Hay despedidas que se escriben con flores.</p>
+      </div>
+      <div class="cover-scene"><span class="floating-note">Para lo que fue. Para lo que casi.</span><div class="cover"><div class="cover-border"><span class="cover-top">PALABRAS QUE NO LLEGUÉ A ENVIAR</span><h2>Lo que quedó<br>de <em>nosotros</em></h2><div class="cover-keepsake"><div class="bouquet cover-floral" id="cover-bouquet" aria-hidden="true"></div><figure class="author-portrait"><div class="portrait-frame"><img src="image/IMG_20260908_190356.jpg" alt="Retrato de ING. ELIAS" width="2448" height="3264" fetchpriority="high"></div><figcaption class="author-plaque"><span aria-hidden="true">&#10023;</span> ING. ELIAS <span aria-hidden="true">&#10023;</span></figcaption></figure></div><span class="cover-bottom">UN JARDÍN PARA DEJARTE IR</span><span class="cover-date">21 · 09</span></div></div><span class="scene-spark spark-one">✧</span><span class="scene-spark spark-two">✧</span><span class="little-caption">Diez páginas para decirlo. Una vida para seguir.</span></div>
+    </section>
+    <section id="reader" class="reader" hidden aria-label="Libro de recuerdos y despedidas"><div class="reader-heading"><button class="text-button" id="back-home">← Portada</button><span class="eyebrow">LO QUE NO TE DIJE, <span id="reader-name"></span></span><span class="chapter-number" id="chapter-number"></span></div><div class="book" id="book"><aside class="illustration-page" id="illustration-page" aria-hidden="true"></aside><article class="content-page" id="page" tabindex="-1"></article></div><nav class="book-controls" aria-label="Navegación del libro"><button id="previous" class="nav-button">← <span>Anterior</span></button><div class="progress" id="progress" aria-label="Páginas"></div><button id="next" class="nav-button"><span>Siguiente</span> →</button></nav><p class="reader-tip">Sin prisa. Hay recuerdos que necesitan una pausa.</p></section>
+  </main>
+  <footer><span>LO QUE SENTIMOS FUE REAL</span><span class="footer-flower">✳</span><span>AÚN QUEDAN FLORES POR CRECER</span></footer>
+</body>
+</html>

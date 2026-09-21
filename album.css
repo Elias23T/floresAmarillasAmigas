@@ -1,0 +1,97 @@
+/* Collages sin texto, con fotografías locales y flores botánicas de fondo. */
+.hint:empty{display:none}
+.cover-keepsake{position:relative;flex:1;min-height:0;width:100%;display:flex;justify-content:center;padding:17px 0 13px}
+.cover-floral{position:absolute;inset:0;opacity:.4;pointer-events:none;transform:rotate(-9deg) scale(1.14)}
+.author-portrait{position:relative;z-index:1;margin:0;width:72%;min-height:0;display:flex;flex-direction:column;align-items:center;gap:10px;transform:rotate(-3deg)}
+.portrait-frame{position:relative;flex:1;min-height:0;width:100%;border:6px solid #fffaf0;outline:1px solid #b6a779;box-shadow:3px 7px 14px #39412638;background:#e9e2cf}
+.portrait-frame::after{content:'';position:absolute;inset:4px;border:1px solid #fff6dd60;pointer-events:none}
+.portrait-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 38%}
+.author-plaque{display:flex;align-items:center;justify-content:center;gap:12px;flex-shrink:0;padding:9px 15px;background:linear-gradient(120deg,#f5ecd2,#e5d6b3,#f3e9cd);border:1px solid #b49c67;outline:1px solid #f7efd9;outline-offset:-4px;border-radius:2px;box-shadow:0 3px 7px #66583720;color:#61543c;font-size:10px;font-weight:600;letter-spacing:2px;white-space:nowrap}
+.author-plaque span{color:#aa8950;font-size:12px}
+@media(max-width:760px){.cover-keepsake{padding:13px 0 10px}.author-portrait{width:74%;gap:8px}.author-plaque{font-size:9px;padding:8px 12px;gap:8px;letter-spacing:1.6px}}
+@media(max-width:360px){.cover-border{padding-top:18px}.cover h2{margin-top:18px}.author-portrait{width:72%}.author-plaque{padding:7px 10px;font-size:8px}}
+.book{position:relative;isolation:isolate;--album-paper:#e9e8d2;perspective:2200px}
+.book[data-theme="1"]{--album-paper:#eee7d8}
+.book[data-theme="2"]{--album-paper:#e5eadc}
+.book[data-theme="3"]{--album-paper:#f0e6cf}
+.book[data-theme="4"]{--album-paper:#e0e6d5}
+.book[data-theme="5"]{--album-paper:#eee0d4}
+.book[data-theme="6"]{--album-paper:#e4e7da}
+.book[data-theme="7"]{--album-paper:#f1e5be}
+.book[data-theme="8"]{--album-paper:#e8e1d3}
+.book[data-theme="9"]{--album-paper:#e7eacb}
+.book[data-theme="2"]{--album-paper:#e8dfe2}
+.book[data-theme="3"]{--album-paper:#e5e0e8}
+.book[data-theme="4"]{--album-paper:#e4e0e9}
+.book[data-theme="5"]{--album-paper:#ebddd9}
+.book[data-theme="6"]{--album-paper:#e7ddd1}
+.book[data-theme="8"]{--album-paper:#e5e4db}
+.book[data-theme="9"]{--album-paper:#e0e3dc}
+.track-info{display:flex;align-items:center;gap:12px;color:#767c6c;font-size:9px;letter-spacing:1.5px;min-height:44px}
+.track-info small{display:block;font-size:7px;letter-spacing:1.8px;margin-top:4px;color:#999c8f}
+.sound-wave{height:20px;display:flex;align-items:center;gap:3px}
+.sound-wave i{display:block;width:2px;height:6px;background:#a7ad8c;border-radius:2px}
+.sound-wave i:nth-child(2){height:15px;animation-delay:-.4s!important}
+.sound-wave i:nth-child(3){height:11px;animation-delay:-.7s!important}
+.sound-wave i:nth-child(4){height:8px;animation-delay:-.2s!important}
+.is-playing:not(.is-muted) .sound-wave i{animation:soundPulse 1.2s ease-in-out infinite alternate}
+.sound-toggle{border:1px solid #d8dac9;background:transparent;border-radius:50%;width:40px;height:40px;font-size:18px;letter-spacing:0}
+.wish-flower svg{display:block;width:48px;height:48px;margin:auto}
+@keyframes soundPulse{to{transform:scaleY(.35)}}
+.illustration-page{padding:30px 20px;background:var(--album-paper);overflow:hidden;min-width:0;position:relative}
+.illustration-page::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 90%,#5c583b18)}
+.photo-collage{position:relative;width:100%;height:480px;max-width:450px;margin:auto;isolation:isolate}
+.botanical-backdrop{position:absolute;inset:-15px -5px;opacity:.62;z-index:-1;transform:rotate(-12deg)}
+.botanical-backdrop svg{width:100%;height:100%;max-width:none}
+.photo-frame{position:absolute;margin:0;padding:8px 8px 24px;background:#fffdf6;box-shadow:2px 10px 21px #45472830;border:1px solid #e7e2d4;transform:rotate(var(--rotation));transition:transform .4s ease;overflow:visible}
+.photo-frame img{display:block;width:100%;height:100%;object-fit:cover;background:#dddcb8;filter:saturate(.85) sepia(.08)}
+.photo-1{width:72%;height:59%;left:7%;top:3%;--rotation:-7deg;z-index:1}
+.photo-2{width:49%;height:39%;right:0;top:46%;--rotation:10deg;z-index:3}
+.photo-3{width:47%;height:35%;left:2%;bottom:1%;--rotation:-11deg;z-index:2}
+.photo-tape{position:absolute;left:calc(50% - 26px);top:-10px;width:52px;height:21px;background:#d5c49b8c;transform:rotate(-5deg);clip-path:polygon(3% 0,100% 6%,96% 90%,0 100%);backdrop-filter:blur(2px)}
+.photo-2 .photo-tape{background:#a5b39180;transform:rotate(6deg)}
+.collage-spark{position:absolute;right:3%;top:10%;font-size:48px;color:#a99142;z-index:4}
+.layout-1 .photo-1{left:17%;top:7%;--rotation:6deg;width:73%;height:54%}
+.layout-1 .photo-2{right:0;top:56%;--rotation:-7deg;height:35%}
+.layout-1 .photo-3{left:0;bottom:13%;--rotation:-13deg;height:40%}
+.layout-1 .botanical-backdrop{transform:rotate(20deg)}
+.layout-2 .photo-1{left:9%;top:6%;width:82%;height:51%;--rotation:-3deg}
+.layout-2 .photo-2{right:2%;top:57%;--rotation:7deg;height:36%}
+.layout-2 .photo-3{bottom:8%;left:0;--rotation:-8deg;height:38%}
+.layout-2 .botanical-backdrop{transform:rotate(-35deg)}
+.layout-3 .photo-1{left:5%;top:4%;width:60%;height:65%;--rotation:-10deg}
+.layout-3 .photo-2{right:0;top:14%;width:46%;height:40%;--rotation:12deg}
+.layout-3 .photo-3{left:33%;bottom:0;width:61%;height:42%;--rotation:5deg}
+.layout-4 .photo-1{left:19%;top:6%;width:76%;height:53%;--rotation:8deg}
+.layout-4 .photo-2{right:2%;top:58%;height:34%;--rotation:-5deg}
+.layout-4 .photo-3{left:1%;bottom:9%;width:53%;height:44%;--rotation:-12deg}
+.layout-4 .botanical-backdrop{transform:rotate(28deg)}
+.mobile-collage{display:none}
+.pressed-flower{height:165px;width:190px;margin:10px auto;opacity:.8}
+/* La hoja anterior permanece visible mientras gira físicamente sobre el lomo. */
+.book.is-turning{overflow:hidden}
+.turning-sheet{position:absolute;top:0;bottom:0;width:50%;z-index:10;transform-style:preserve-3d;pointer-events:none;will-change:transform;box-shadow:9px 3px 30px #332e3825}
+.turning-sheet.forward{right:0;transform-origin:left center}
+.turning-sheet.backward{left:0;transform-origin:right center}
+.leaf-face{position:absolute!important;inset:0;width:100%;height:100%;margin:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-sizing:border-box}
+.leaf-front{transform:rotateY(0deg);background-color:#fffdf6}
+.leaf-back{transform:rotateY(180deg);background-color:var(--album-paper)}
+.leaf-face::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#574b3526,transparent 16%,transparent 80%,#574b351a);pointer-events:none}
+.book.is-turning>.content-page,.book.is-turning>.illustration-page{pointer-events:none}
+@media(hover:hover){.photo-frame:hover{transform:rotate(0) translateY(-4px);z-index:5}}
+@media(max-width:760px){
+  .reader{max-width:550px}
+  .content-page{padding:22px 25px 28px;overflow:hidden}
+  .mobile-collage{display:block;height:clamp(245px,76vw,365px);margin:0 auto 29px;max-width:380px}
+  .mobile-collage::before{content:'';position:absolute;inset:-22px -25px -3px;background:var(--album-paper);z-index:-2}
+  .photo-frame{padding:6px 6px 17px}
+  .photo-tape{width:43px;height:17px;left:calc(50% - 21px);top:-8px}
+  .collage-spark{font-size:35px}
+  .content-page h2{font-size:34px;margin-top:15px}
+  .turning-sheet{width:100%}
+  .turning-sheet.backward{left:auto;right:0}
+  .leaf-face.content-page{padding-top:22px}
+  .book-controls{position:sticky;bottom:8px;background:#f6f2e9f2;border:1px solid #d8dac9;border-radius:32px;padding:5px;z-index:20;box-shadow:0 5px 20px #45472814;backdrop-filter:blur(12px)}
+  .nav-button{border:0}
+}
+@media(prefers-reduced-motion:reduce){.photo-frame{transition:none}}
