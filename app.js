@@ -29,7 +29,7 @@ function floralDrawing(index) {
   return `<svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg" fill="none"><g stroke="#89917a" stroke-width="2">${heads.map(([x,y],i)=>`<path d="M${100+i*45} 300 Q${x-40} 185 ${x} ${y}"/><path d="M${x+8} ${y+94}q-44-3-42-36q34 1 42 36m4 16q42-8 43-39q-37 8-43 39" fill="#adb39b" stroke="none"/><g transform="translate(${x} ${y}) rotate(${i*12-10})" stroke="none">${flowerShape(index)}</g>`).join('')}</g></svg>`;
 }
 function collage(index, mobile = false) {
-  return `<div class="photo-collage layout-${index%5} ${mobile?'mobile-collage':''}" aria-label="Un jardín de recuerdos"><div class="botanical-backdrop" aria-hidden="true">${floralDrawing(index)}</div>${photoLayouts[index].map((photo,i)=>`<figure class="photo-frame photo-${i+1}"><img src="assets/garden/flower-${photo+1}.jpg" alt="${photoDescriptions[photo]}" decoding="async" width="780" height="780"><span class="photo-tape" aria-hidden="true"></span></figure>`).join('')}<span class="collage-spark" aria-hidden="true">✧</span></div>`;
+  return `<div class="photo-collage layout-${index%5} ${mobile?'mobile-collage':''}" aria-label="Un jardín para una amiga"><div class="botanical-backdrop" aria-hidden="true">${floralDrawing(index)}</div>${photoLayouts[index].map((photo,i)=>`<figure class="photo-frame photo-${i+1}"><img src="assets/garden/flower-${photo+1}.jpg" alt="${photoDescriptions[photo]}" decoding="async" width="780" height="780"><span class="photo-tape" aria-hidden="true"></span></figure>`).join('')}<span class="collage-spark" aria-hidden="true">✧</span></div>`;
 }
 const escapeHTML = (value) => value.replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 function bouquet(seed = 0) {
@@ -39,16 +39,16 @@ function bouquet(seed = 0) {
 $('cover-bouquet').innerHTML = bouquet();
 try { $('name').value = localStorage.getItem('flower-book-name') || ''; } catch {}
 const chapters = [
-  {label:'Lo que quedó',title:n=>`Todavía hay flores para ti, ${n}.`,copy:'Volvió septiembre. En la esquina venden flores amarillas y, por un instante, pensé en comprarte unas. Después recordé que ya no sé dónde encontrarte.',quote:n=>`${n}, hay gestos que el corazón recuerda mucho después de aprender la despedida.`,foot:'Estas páginas guardan lo que no supe decir.'},
-  {label:'Antes de nosotros',title:n=>`No sabía que ibas a importarme tanto, ${n}.`,copy:'Al principio eras una conversación más. Después empecé a guardar pequeñas cosas del día para contártelas. Sin darme cuenta, te había hecho un lugar en todas mis tardes.',quote:n=>`${n}, extraño esa época en la que todavía no tenía miedo de perderte.`},
-  {label:'El amor que no pasó',title:n=>`También dolió lo que no fuimos, ${n}.`,copy:'Nunca tuvimos una fecha que celebrar. Hubo miradas, mensajes escritos a medias y un futuro que solo me atreví a imaginar. A veces me pregunto si tú también lo viste.',quote:n=>`${n}, tuve que despedirme de una historia que ni siquiera había comenzado.`},
-  {label:'Lo que callé',title:n=>`Me faltó valor, ${n}.`,copy:'Hay palabras que dejé para después, como si el tiempo nos debiera otra oportunidad. Toca estos pequeños silencios.',type:'cards'},
-  {label:'Desde la distancia',title:n=>`Aún te deseo cosas bonitas, ${n}.`,copy:'Aunque ya no me toque saber cómo te fue, aunque aprender a soltar duela. Cada flor guarda un deseo que no necesita respuesta.',type:'wishes'},
-  {label:'Una carta sin enviar',title:n=>`No voy a enviarte esta carta, ${n}.`,copy:'La escribo para dejar de ensayar nuestra última conversación cada vez que la casa se queda en silencio.',type:'letter'},
-  {label:'Las cosas que regresan',title:n=>`A veces vuelves en lo pequeño, ${n}.`,copy:'No apareces en la puerta. Apareces en una canción, en una calle, en la costumbre de mirar el teléfono cuando ocurre algo bonito.',type:'moments'},
-  {label:'Septiembre sin ti',title:n=>`Las flores llegaron igual, ${n}.`,copy:'El mundo no se detuvo cuando nos perdimos. Eso fue lo más extraño: los días seguían siendo hermosos, incluso cuando yo no sabía qué hacer con tanta ausencia.',quote:n=>`${n}, hoy dejé flores junto a la ventana. Esta vez también quise que hubiera algo bonito para mí.`,type:'bouquet'},
-  {label:'La última vez',title:n=>`Si pudiera decirte algo más, ${n}…`,copy:'No sería una forma de pedirte que volvieras. Solo una manera de despedirme con la ternura que no me salió aquel día.',type:'envelope'},
-  {label:'Dejarte ir',title:n=>`Te quise. Ahora sigo, ${n}.`,copy:'No sé en qué momento dejará de doler. Pero hoy pude recordar algo bonito sin desear cambiar el final. Quizá sanar comience así, con un instante pequeño de paz.',quote:n=>`${n}, ojalá la vida te cuide. Yo voy a aprender a cuidarme también.`,type:'end'}
+  {label:'Flores para una amiga',title:n=>`Estas flores son para ti, ${n}.`,copy:'Este 21 de septiembre quería regalarte algo que pudieras guardar y volver a mirar cuando necesites una sonrisa. Por eso preparé este pequeño jardín de palabras para ti.',quote:n=>`${n}, gracias por ser una de esas amigas que hacen más bonitos los días.`,foot:'Un detalle de tu amigo Elias, con mucho cariño.'},
+  {label:'Qué suerte encontrarte',title:n=>`Qué bonito tenerte como amiga, ${n}.`,copy:'Una amistad puede empezar con una conversación cualquiera y terminar llenando la vida de anécdotas. Me alegra que nuestros caminos se hayan cruzado.',quote:n=>`${n}, entre tantas personas, qué suerte haber coincidido contigo.`},
+  {label:'Una amistad sincera',title:n=>`Aquí puedes ser tú, ${n}.`,copy:'No hace falta tener siempre una historia divertida ni estar de buen ánimo para compartir un rato. También hay lugar para los días tranquilos, las dudas y las conversaciones sin prisa.',quote:n=>`${n}, valoro tu amistad por la persona que eres, incluso en los días en que tú misma lo olvidas.`},
+  {label:'Lo bonito de ti',title:n=>`Hay mucho que agradecerte, ${n}.`,copy:'A veces damos por sentados los pequeños gestos que hacen especial a una amiga. Hoy quiero detenerme en algunos. Toca cada tarjeta.',type:'cards'},
+  {label:'Deseos para tu vida',title:n=>`Tres deseos para ti, ${n}.`,copy:'Cada flor guarda algo bonito que deseo para tu camino. Elige una y llévate sus palabras contigo.',type:'wishes'},
+  {label:'Una carta de tu amigo',title:n=>`Querida amiga ${n}…`,copy:'Entre las prisas de cada día, a veces se nos pasa decirles a nuestras amigas cuánto las apreciamos. Esta carta es para eso.',type:'letter'},
+  {label:'Momentos que suman',title:n=>`Contigo, lo sencillo se disfruta más, ${n}.`,copy:'No siempre hace falta un gran plan. Una charla, algo rico para comer o una ocurrencia a tiempo pueden convertirse en un recuerdo que nos acompañe por años.',type:'moments'},
+  {label:'Un jardín para ti',title:n=>`Que nunca te falten flores, ${n}.`,copy:'Aquí tienes un poquito de primavera para acompañar tu día. Ojalá estas flores te recuerden que mereces tiempo para descansar, celebrar tus logros y disfrutar lo que te hace feliz.',quote:n=>`${n}, crece a tu ritmo. Tu amigo también estará para celebrar tus pequeños pasos.`,type:'bouquet'},
+  {label:'Un mensaje especial',title:n=>`Todavía quería decirte algo, ${n}…`,copy:'Guardé unas palabras más en este sobre. Ábrelo cuando quieras recibir un pequeño abrazo de tu amigo.',type:'envelope'},
+  {label:'Por más momentos juntos',title:n=>`Feliz 21 de septiembre, ${n}.`,copy:'Aquí termina el libro, pero quedan muchas conversaciones, risas y planes por compartir. Gracias por formar parte de mi vida y por dejarme ser parte de la tuya.',quote:n=>`${n}, que este nuevo comienzo de primavera te encuentre rodeada de cariño y de amistades que te hagan bien.`,type:'end'}
 ];
 function render(focus = false) {
   const c = chapters[current], n = escapeHTML(person);
@@ -57,21 +57,21 @@ function render(focus = false) {
   $('book').dataset.theme = String(current);
   $('illustration-page').innerHTML = collage(current);
   let extra = '';
-  if(c.type==='cards') extra = `<div class="reveal-grid">${['Lo que iba a decirte','El mensaje que borré','Lo que aún recuerdo'].map((t,i)=>`<button class="reveal-card ${opened.has('card'+i)?'revealed':''}" data-card="${i}" aria-expanded="${opened.has('card'+i)}">${opened.has('card'+i)?cardText(i,n):'✧ &nbsp; '+t+' &nbsp; +'}</button>`).join('')}</div>`;
-  if(c.type==='wishes') extra = `<div class="wish-grid">${[0,1,2].map((i)=>`<button class="wish-flower" data-wish="${i}" aria-label="Descubrir deseo ${i+1}"><svg viewBox="-55 -55 110 110" aria-hidden="true">${flowerShape([1,8,3][i])}</svg></button>`).join('')}</div><p class="wish-result" id="wish-result" aria-live="polite">${wishes.has('selected')?wishText(wishes.get('selected'),n):'Hay cariño que aprende a quedarse lejos…'}</p>`;
-  if(c.type==='letter') extra = `<div class="letter">${n},<br><br>Me acostumbré a imaginarte en mis días. Por eso tu ausencia estuvo en tantos lugares a la vez.<br><br>No te escribo para pedirte que regreses. Solo necesitaba admitir que te quise, que me dolió y que todavía estoy aprendiendo a hablar de ti en pasado.<br><br>Ojalá algún día pueda recordarnos sin quedarme a vivir en ese recuerdo.<br><br>Con el cariño que sí fue real.</div>`;
-  if(c.type==='moments') extra = `<ul class="memory-list"><li><span>01</span> ${n}, esa canción que todavía no consigo escuchar de fondo.</li><li><span>02</span> La calle por la que camino más despacio, aunque sé que no vas a estar.</li><li><span>03</span> Las buenas noticias que, por un segundo, aún pienso contarte.</li></ul>`;
+  if(c.type==='cards') extra = `<div class="reveal-grid">${['Tu forma de escuchar','Tu sentido del humor','Tu manera de ser'].map((t,i)=>`<button class="reveal-card ${opened.has('card'+i)?'revealed':''}" data-card="${i}" aria-expanded="${opened.has('card'+i)}">${opened.has('card'+i)?cardText(i,n):'✧ &nbsp; '+t+' &nbsp; +'}</button>`).join('')}</div>`;
+  if(c.type==='wishes') extra = `<div class="wish-grid">${[0,1,2].map((i)=>`<button class="wish-flower" data-wish="${i}" aria-label="Descubrir deseo ${i+1}"><svg viewBox="-55 -55 110 110" aria-hidden="true">${flowerShape([1,8,3][i])}</svg></button>`).join('')}</div><p class="wish-result" id="wish-result" aria-live="polite">${wishes.has('selected')?wishText(wishes.get('selected'),n):'Elige una flor: hay un buen deseo esperando por ti…'}</p>`;
+  if(c.type==='letter') extra = `<div class="letter">${n},<br><br>Gracias por tu amistad, por las conversaciones y por esos detalles que a veces parecen pequeños, pero significan mucho.<br><br>Quería recordarte que no tienes que poder con todo tú sola. Puedes contar conmigo para escucharte, compartir una risa o acompañarte cuando el día se ponga difícil.<br><br>Ojalá esta primavera te traiga motivos para ilusionarte, y que podamos celebrar juntos muchos de ellos.<br><br>Con cariño,<br>tu amigo Elias.</div>`;
+  if(c.type==='moments') extra = `<ul class="memory-list"><li><span>01</span> ${n}, por las risas que empiezan con cualquier ocurrencia.</li><li><span>02</span> Por las conversaciones que se alargan porque todavía queda algo que contar.</li><li><span>03</span> Por los planes sencillos y las anécdotas que aún nos esperan.</li></ul>`;
   if(c.type==='bouquet') extra = `<div class="pressed-flower" aria-hidden="true">${floralDrawing(current)}</div>`;
-  if(c.type==='envelope') extra = `<button class="envelope" id="envelope" aria-expanded="${opened.has('envelope')}" aria-label="Abrir sobre">${opened.has('envelope')?'♡':'✉'}</button><div class="letter" id="secret" ${opened.has('envelope')?'':'hidden'}>${n},<br><br>Cada vez que vuelvo a los lugares por los que caminamos juntos, a las plazas o a los sitios donde solíamos comer, me invaden los recuerdos de lo que vivimos.<br><br>Me dolía tanto estar allí sin ti que incluso me cambié de ciudad, buscando un poco de calma. Pero cada vez que regreso a mi pueblo, donde compartimos tantos momentos felices, vuelvo a sentir el peso de tu ausencia.<br><br>Tal vez ya no recuerdes esos días como yo, pero quería darte las gracias por haberlos compartido conmigo. Fueron algunos de los mejores momentos de mi vida, y tuve la suerte de vivirlos contigo a mi lado.<br><br>Gracias por todo lo bonito que vivimos juntos.</div>`;
+  if(c.type==='envelope') extra = `<button class="envelope" id="envelope" aria-expanded="${opened.has('envelope')}" aria-label="Abrir sobre">${opened.has('envelope')?'♡':'✉'}</button><div class="letter" id="secret" ${opened.has('envelope')?'':'hidden'}>${n},<br><br>Qué alegría poder llamarte amiga. Gracias por los ratos compartidos, por tu confianza y por hacer que tantos momentos sencillos se vuelvan especiales.<br><br>Aunque a veces las ocupaciones nos dejen menos tiempo para hablar, quiero que sepas que te aprecio y que me alegra saber de ti.<br><br>Ojalá sigamos sumando paseos, conversaciones, comidas y esas risas que después se convierten en nuestras mejores anécdotas.<br><br>Estas flores son una pequeña forma de decirte: gracias por tu amistad.<br><br>Un abrazo de tu amigo Elias.</div>`;
   if(c.type==='end') extra = `<button class="primary small-action" id="restart">Volver a leer ↺</button><div class="petals" aria-hidden="true">${Array.from({length:9},(_,i)=>`<span class="petal" style="left:${i*12}%;animation-delay:${i*.6}s"></span>`).join('')}</div>`;
   $('page').innerHTML = `${collage(current,true)}<span class="page-kicker">CAPÍTULO ${String(current+1).padStart(2,'0')} · ${c.label}</span><h2>${c.title(n)}</h2><p class="page-copy">${c.copy}</p>${c.quote?`<blockquote class="page-quote">${c.quote(n)}</blockquote>`:''}${extra}<div class="page-decoration" aria-hidden="true">✳</div>${c.foot?`<p class="page-copy">${c.foot}</p>`:''}`;
   $('previous').disabled = current===0; $('next').disabled = current===9;
   $('progress').innerHTML = chapters.map((c,i)=>`<button data-page="${i}" aria-label="Página ${i+1}: ${c.label}" ${i===current?'aria-current="page"':''}></button>`).join('');
   if(focus){$('page').focus({preventScroll:true});$('reader').scrollIntoView({block:'start',behavior:'auto'});}
 }
-function cardText(i,n){return [`${n}, cuando preguntaba si habías llegado bien, también estaba diciendo cuánto me importabas.`,`${n}, escribí que te extrañaba. Lo borré porque no sabía si todavía tenía un lugar en tu día.`,`${n}, a veces recuerdo tu risa con tanta claridad que el silencio que viene después pesa un poco más.`][i];}
-function wishText(i,n){return [`${n}, ojalá encuentres un amor junto al que puedas descansar, sin preguntarte si mañana seguirá ahí.`,`${n}, deseo que vuelvas a ilusionarte. Aunque yo tenga que aprender a no estar en esa historia.`,`${n}, que un día ambos podamos recordar lo nuestro sin sentir que nos falta el aire.`][i];}
-$('name-form').addEventListener('submit',event=>{event.preventDefault();person=$('name').value.trim();if(!person){$('name-error').textContent='Escribe el nombre que guarda esta historia.';$('name').focus();return;}$('name-error').textContent='';try{localStorage.setItem('flower-book-name',person);}catch{}current=0;opened.clear();wishes.clear();$('welcome').hidden=true;$('reader').hidden=false;render(true);});
+function cardText(i,n){return [`${n}, gracias por escuchar con atención y hacer que una conversación se sienta como un descanso.`,`${n}, tu risa y tus ocurrencias pueden convertir un día cualquiera en una buena anécdota.`,`${n}, valoro tu sinceridad y la confianza de poder ser nosotros mismos cuando compartimos un rato.`][i];}
+function wishText(i,n){return [`${n}, que encuentres oportunidades para tus sueños y confianza para intentarlo, incluso cuando dé un poco de miedo.`,`${n}, que tengas salud, tranquilidad y tiempo para disfrutar las cosas que te hacen sonreír.`,`${n}, que siempre tengas cerca personas que te escuchen, te respeten y celebren contigo tus alegrías.`][i];}
+$('name-form').addEventListener('submit',event=>{event.preventDefault();person=$('name').value.trim();if(!person){$('name-error').textContent='Amiga, escribe tu nombre para abrir tu regalo.';$('name').focus();return;}$('name-error').textContent='';try{localStorage.setItem('flower-book-name',person);}catch{}current=0;opened.clear();wishes.clear();$('welcome').hidden=true;$('reader').hidden=false;render(true);});
 $('back-home').addEventListener('click',()=>{$('reader').hidden=true;$('welcome').hidden=false;$('name').focus();});
 function leafCopy(source) {
   const copy = source.cloneNode(true);
@@ -121,32 +121,3 @@ $('previous').addEventListener('click',()=>go(current-1));$('next').addEventList
 $('progress').addEventListener('click',e=>{const button=e.target.closest('[data-page]');if(button)go(Number(button.dataset.page));});
 $('page').addEventListener('click',e=>{const card=e.target.closest('[data-card]');if(card){opened.add('card'+card.dataset.card);card.textContent=cardText(Number(card.dataset.card),person);card.classList.add('revealed');card.setAttribute('aria-expanded','true');}const wish=e.target.closest('[data-wish]');if(wish){wishes.set('selected',Number(wish.dataset.wish));$('wish-result').textContent=wishText(Number(wish.dataset.wish),person);}if(e.target.closest('#envelope')){opened.add('envelope');$('secret').hidden=false;$('envelope').textContent='♡';$('envelope').setAttribute('aria-expanded','true');}if(e.target.closest('#restart'))go(0);});
 document.addEventListener('keydown',e=>{if($('reader').hidden||e.target.matches('input,textarea'))return;if(e.key==='ArrowRight'){e.preventDefault();go(current+1);}if(e.key==='ArrowLeft'){e.preventDefault();go(current-1);}});
-// El navegador decide si permite audio sin interacción. Reintentamos al primer gesto.
-const soundtrack=$('soundtrack');
-soundtrack.volume=.55;
-let startingAudio=false;
-async function startSoundtrack(){
-  if(startingAudio||!soundtrack.paused||soundtrack.error)return;
-  startingAudio=true;
-  try{await soundtrack.play();}catch(error){
-    if(error.name!=='NotAllowedError'&&error.name!=='AbortError')$('track-status').textContent='La canción no está disponible';
-  }finally{startingAudio=false;}
-}
-function showSoundControl(){
-  $('sound-toggle').hidden=false;
-  $('track-info').classList.add('is-playing');
-}
-soundtrack.addEventListener('playing',showSoundControl);
-// El autoplay nativo puede haber comenzado antes de cargar este script.
-if(!soundtrack.paused)showSoundControl();
-soundtrack.addEventListener('error',()=>{$('track-status').textContent='La canción no está disponible';});
-$('sound-toggle').addEventListener('click',()=>{
-  soundtrack.muted=!soundtrack.muted;
-  $('sound-toggle').setAttribute('aria-pressed',String(soundtrack.muted));
-  $('sound-toggle').setAttribute('aria-label',soundtrack.muted?'Restaurar sonido':'Silenciar música');
-  $('sound-toggle').title=soundtrack.muted?'Restaurar sonido':'Silenciar música';
-  $('sound-toggle').textContent=soundtrack.muted?'♪ ×':'♫';
-  $('track-info').classList.toggle('is-muted',soundtrack.muted);
-});
-['pointerdown','touchend','click','keydown'].forEach(type=>document.addEventListener(type,startSoundtrack,{passive:true}));
-startSoundtrack();
