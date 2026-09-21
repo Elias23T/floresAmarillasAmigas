@@ -14,7 +14,7 @@ Libro de 10 páginas para celebrar a las amigas este 21 de septiembre. Incluye f
 
 El nombre se guarda exclusivamente en localStorage del navegador. No hay servidor ni base de datos. Las flores de fondo son ilustraciones SVG propias, con diez siluetas distintas. Google Fonts es opcional: sin conexión se utilizan las fuentes del sistema.
 
-La música utiliza el reproductor visible de YouTube para el video https://www.youtube.com/watch?v=c2lJHjLdgvI. Intenta reproducirse al cargar y se mantiene entre las páginas. Si el navegador bloquea el autoplay, toca Reproducir dentro del video. Incluye un enlace directo a YouTube si el video no permite reproducción integrada. Necesita conexión a Internet. Prueba el reproductor desde Vercel o un servidor HTTP local: abrir el HTML como archivo puede ocasionar errores de identificación del reproductor.
+La música usa el MP3 local `musica/Héroe - Enrique Iglesias (letra).mp3`. Intenta comenzar al entrar; si el navegador bloquea el audio automático, empieza con el primer toque o al abrir el libro. No se reinicia al pasar las hojas. Incluye un control para silenciar y restaurar el sonido. No depende de YouTube.
 
 En celular se muestra una página con collage y texto; en pantallas amplias, el collage acompaña la página de texto. Cada capítulo tiene tres fotos exclusivas: treinta fotos sin repetir entre capítulos. Hay girasoles, margaritas, rosas, tulipanes, peonías, orquídeas, cosmos, hortensias, iris, narcisos, dalias, amapolas, lavanda y flores de cerezo. Se guardan localmente en `assets/garden`; sus fuentes están en `assets/garden/sources.json` y se utilizan bajo la licencia de Unsplash: https://unsplash.com/license. Los archivos de `assets/photos` pertenecen a la versión anterior.
 
@@ -22,6 +22,6 @@ Las hojas giran sobre el lomo durante 1,6 segundos, con anverso, reverso y sombr
 
 La portada incluye la foto proporcionada en `image/IMG_20260908_190356.jpg`, con marco y placa «ING. ELIAS».
 
-Para publicar, incluye `index.html`, `styles.css`, `album.css`, `app.js`, `assets/garden` e `image`. No hace falta subir `node_modules` ni `.checks` (herramientas y resultados de pruebas).
+Para publicar, incluye `index.html`, `styles.css`, `album.css`, `app.js`, `assets/garden`, `image` y `musica`. No hace falta subir `node_modules` ni `.checks` (herramientas y resultados de pruebas).
 
 Para cambiar frases, edita `chapters` en `app.js`. Para cambiar colores, edita las variables al inicio de `styles.css`. No subas fotos personales sin permiso de sus protagonistas.

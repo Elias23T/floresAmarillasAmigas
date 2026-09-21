@@ -11,11 +11,8 @@
   <script src="app.js" defer></script>
 </head>
 <body>
-  <header class="site-header"><a class="brand" href="./" aria-label="Inicio">✳ <span>PARA MIS AMIGAS</span></a><a class="music-link" href="#music-player">♫ Una canción para ti</a></header>
-  <section class="music-dedication" id="music-player" aria-label="Una canción para acompañar tu regalo">
-    <div class="music-dedication-copy"><p class="eyebrow">PARA ACOMPAÑAR ESTAS FLORES</p><p class="handwritten">Una canción, un detalle y una bonita amistad.</p><a href="https://www.youtube.com/watch?v=c2lJHjLdgvI" target="_blank" rel="noopener noreferrer">Escuchar en YouTube ↗</a></div>
-    <iframe class="youtube-player" src="https://www.youtube.com/embed/c2lJHjLdgvI?autoplay=1&amp;playsinline=1&amp;loop=1&amp;playlist=c2lJHjLdgvI&amp;rel=0" title="Una canción para mis amigas — reproductor de YouTube" width="480" height="270" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </section>
+  <audio id="soundtrack" autoplay loop preload="metadata" playsinline src="musica/Héroe - Enrique Iglesias (letra).mp3"></audio>
+  <header class="site-header"><a class="brand" href="./" aria-label="Inicio">✳ <span>PARA MIS AMIGAS</span></a><div class="track-info" id="track-info"><span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="track-status">HÉROE <small>ENRIQUE IGLESIAS</small></span><button id="sound-toggle" class="sound-toggle" aria-label="Silenciar música" title="Silenciar música" aria-pressed="false" hidden>♫</button></div></header>
   <main>
     <section id="welcome" class="welcome">
       <div class="intro"><p class="eyebrow">21 DE SEPTIEMBRE · CELEBREMOS LA AMISTAD</p><h1>Hay amigas<br>que hacen<br><em>florecer la vida.</em></h1><p class="intro-copy">Para ti, que haces más bonitas las conversaciones y más divertidos los días. Un pequeño regalo de tu amigo Elias para celebrar nuestra amistad.</p>

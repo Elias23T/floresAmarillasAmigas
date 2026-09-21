@@ -121,3 +121,33 @@ $('previous').addEventListener('click',()=>go(current-1));$('next').addEventList
 $('progress').addEventListener('click',e=>{const button=e.target.closest('[data-page]');if(button)go(Number(button.dataset.page));});
 $('page').addEventListener('click',e=>{const card=e.target.closest('[data-card]');if(card){opened.add('card'+card.dataset.card);card.textContent=cardText(Number(card.dataset.card),person);card.classList.add('revealed');card.setAttribute('aria-expanded','true');}const wish=e.target.closest('[data-wish]');if(wish){wishes.set('selected',Number(wish.dataset.wish));$('wish-result').textContent=wishText(Number(wish.dataset.wish),person);}if(e.target.closest('#envelope')){opened.add('envelope');$('secret').hidden=false;$('envelope').textContent='♡';$('envelope').setAttribute('aria-expanded','true');}if(e.target.closest('#restart'))go(0);});
 document.addEventListener('keydown',e=>{if($('reader').hidden||e.target.matches('input,textarea'))return;if(e.key==='ArrowRight'){e.preventDefault();go(current+1);}if(e.key==='ArrowLeft'){e.preventDefault();go(current-1);}});
+
+// El navegador decide si permite audio sin interacción. Reintentamos al primer gesto.
+const soundtrack=$('soundtrack');
+soundtrack.volume=.55;
+let startingAudio=false;
+async function startSoundtrack(){
+  if(startingAudio||!soundtrack.paused||soundtrack.error)return;
+  startingAudio=true;
+  try{await soundtrack.play();}catch(error){
+    if(error.name!=='NotAllowedError'&&error.name!=='AbortError')$('track-status').textContent='La canción no está disponible';
+  }finally{startingAudio=false;}
+}
+function showSoundControl(){
+  $('sound-toggle').hidden=false;
+  $('track-info').classList.add('is-playing');
+}
+soundtrack.addEventListener('playing',showSoundControl);
+// El autoplay nativo puede haber comenzado antes de cargar este script.
+if(!soundtrack.paused)showSoundControl();
+soundtrack.addEventListener('error',()=>{$('track-status').textContent='La canción no está disponible';});
+$('sound-toggle').addEventListener('click',()=>{
+  soundtrack.muted=!soundtrack.muted;
+  $('sound-toggle').setAttribute('aria-pressed',String(soundtrack.muted));
+  $('sound-toggle').setAttribute('aria-label',soundtrack.muted?'Restaurar sonido':'Silenciar música');
+  $('sound-toggle').title=soundtrack.muted?'Restaurar sonido':'Silenciar música';
+  $('sound-toggle').textContent=soundtrack.muted?'♪ ×':'♫';
+  $('track-info').classList.toggle('is-muted',soundtrack.muted);
+});
+['pointerdown','touchend','click','keydown'].forEach(type=>document.addEventListener(type,startSoundtrack,{passive:true}));
+startSoundtrack();
